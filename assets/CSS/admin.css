@@ -1,0 +1,84 @@
+/* IMPORT FONTS */
+@font-face {
+    font-family: "Merriweather-Bold";
+    src: url(../FONTS/Merriweather/Merriweather-Bold.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Regular";
+    src: url(../FONTS/Merriweather/Merriweather-Regular.ttf);
+}
+@font-face {
+    font-family: "Merriweather-BoldItalic";
+    src: url(../FONTS/Merriweather/Merriweather-BoldItalic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Italic";
+    src: url(../FONTS/Merriweather/Merriweather-Italic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-LightItalic";
+    src: url(../FONTS/Merriweather/Merriweather-LightItalic.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Black";
+    src: url(../FONTS/Merriweather/Merriweather-Black.ttf);
+}
+@font-face {
+    font-family: "Merriweather-Light";
+    src: url(../FONTS/Merriweather/Merriweather-Light.ttf);
+}
+@font-face {
+    font-family: "Poppins-Light";
+    src: url(../FONTS/Poppins/Poppins-Light.ttf);
+}
+@font-face {
+    font-family: "Poppins-MediumItalic";
+    src: url(../FONTS/Poppins/Poppins-MediumItalic.ttf);
+}
+
+@font-face {
+    font-family: "Poppins-Regular";
+    src: url(../FONTS/Poppins/Poppins-Regular.ttf);
+}
+
+/* Scrollbar width reduced---snippet-- */
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.main-container{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: #f8fafb;
+    /* background-image: url(../IMG/green-slate.jpg);
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.navbar button[aria-expanded="false"] > .close{
+    display:none;
+}
+.navbar button[aria-expanded="true"] > .open{
+    display:none;
+}
+.nav-link,.dropdown-item,.navbar-brand{
+    font-family: "Merriweather-Regular";
+}

@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RingAbout</title>
+
+    <!--CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+     <!-- Font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+    <link rel="stylesheet" href="./assets/CSS/main.css">
+    <style>
+        .dropspace{
+            left:-3rem !important;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="main-container">
+
+        <!-- Lottery Popup -->
+        <div class="modal fade" id="eModalLong" tabindex="-1" role="dialog" aria-labelledby="eModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="eModalLongTitle">Win a Prize!!!!</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form action="">
+                                <h5 class="mb-3">Add your details to win prize</h5>
+                                <div class="form-group">
+                                    <label>Name</label>
+                                    <input type="text" class="pname form-control" placeholder="Enter your name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Bank Name</label>
+                                    <input type="text" class="bankname form-control" placeholder="Enter your bank name">
+                                </div>
+                                <div class="form-group">
+                                    <label>Account Number</label>
+                                    <input type="text" class="bankacc form-control" placeholder="Enter your account number">
+                                </div>
+                                <div class="form-group mt-4">
+                                    <button class="btn btn-block prize_submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Classifieds Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 650px;">
+                <div class="modal-content" style="height: 500px;">
+                    <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLongTitle">Create your Advertisement</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <form action="">
+                                <h5>Choose the form of advertisement you want to post</h5>
+                                <select class="custom-select">
+                                    <option selected>Select one from below</option>
+                                    <option class="one opts" value="1">Image</option>
+                                    <option class="two opts" value="2">Text</option>
+                                </select>
+                                <div>
+                                    <!-- image option -->
+                                    <div class="img-opt mt-5">
+                                        <p class="note"><strong>*** Image should be of dimension 300*100 for better visuals</strong></p>
+                                        <div class="d-flex mb-4">
+                                            <div class="uadphoto">
+                                                <img src="" class="uadpic" alt="photo">
+                                            </div>
+                                            <div class="upbtn ml-4">
+                                                <button class="btn igUpload">Upload Picture</button>
+                                                <input type="file" id="imgUpload" style="display: none;">
+                                            </div> 
+                                        </div>
+                                        <button class="btn submitbtn">Submit</button>
+                                    </div>
+                                    <!-- text option -->
+                                    <div class="text-opt mt-5">
+                                        <p class="mb-1 note"><strong>*** Maximum 150 letters</strong></p>
+                                        <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
+                                        <button class="btn txtsubmitbtn">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg" style="background-color: #026852;">
+            <a class="navbar-brand ml-lg-2 text-white" href="main.html">Ringabout</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <!-- <span class="navbar-toggler-icon"></span> -->
+                <i class="fas fa-bars open text-white fw-bold"></i>
+                <i class="fas fa-times close text-white fw-bold"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end mr-4" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link text-white" href="main.html">Home</a>
+                </li>
+                <li class="nav-item ml-lg-3">
+                  <a class="nav-link text-white" href="leaderboard.html">Leaderboard</a>
+                </li>
+                <li class="nav-item ml-lg-3 dropdown">
+                  <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Profile
+                  </a>
+                  <div class="dropdown-menu dropspace" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                    <a class="dropdown-item" href="#">Log Out</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        </nav>
+
+
+          <!-- main content -->
+        <div class="up-content w-100 container-fluid">
+            <!-- Ad 1   -->
+            <div class="afterheaderad my-4 mb-5" id="advert1">
+                <div class="h-100 d-flex">
+                    <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100 " alt="">
+                </div>
+            </div>
+
+            <!-- challenge row -->
+            <div class="row">
+                <div class="col-md-2" style="height: 500px;">
+                    <div class="h-100 w-100 d-flex flex-column justify-content-between">
+                        <!-- dollar lucky draw -->
+                        <div class="dollar">
+                            <div class="w-100 h-100" style="background-color: white;">
+                                <!-- <div class="dollar-d" style="width:100%;height:100%;position:relative;"><iframe src="https://giphy.com/embed/69f6kp3FRMJEk8uemU" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" sandbox="allow-modals allow-forms allow-scripts allow-same-origin " allowFullScreen></iframe></div> -->
+                                <div style="width:100%;height:100%;position:relative;"><img src="./assets/IMG/gift-present.gif"width="100%" height="100%" style="position:absolute" alt=""></div>
+                            </div>
+                        </div>
+                        <div class="money">
+                            <div class="w-100 h-100 p-2">
+                                <h4 class="text-center mb-4">Highest Money Winner</h4>
+                                <div class="d-flex flex-column align-items-center justify-content-between">
+                                    <h1>$<br><span>54,25,32,214</span></h1>
+                                    <h2>UserName</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- challenge div -->
+                <div class="col-md-8" style="height: 500px;">
+                    <div class="bg-dark challenge_div h-100 d-flex">
+                        <!-- <div class="w-100 h-100"> -->
+                            <img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="img-fluid w-100" alt="">
+                        <!-- </div> -->
+                    </div>
+                </div>
+                <div class="col-md-2" style="height: 500px;">
+                    <div class="onliners h-100 w-100 pt-3 pb-3">
+                        <h4 class="text-center text-white">Online Users</h4>
+                        <div class="onilneusers mt-3 d-flex flex-column px-1">
+                            <!-- individual user -->
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                            <a href="#" class="users mb-3 d-block">
+                                <div class=" d-flex justify-content-center align-items-center">
+                                    <div class="ou_img">
+                                        <img src="./assets/IMG/undraw_login_re_4vu2 (1).svg" alt="">
+                                    </div>
+                                    <h1 class="ou_name ml-2">User Name</h1>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ad 2 -->
+            <div class="ad2 bg-dark my-4 w-100" id="advert2" style="height: 160px; border: 1px solid #000;">
+                <div class="h-100 d-flex">
+            		<img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="img-fluid w-100">
+            	</div>
+            </div>
+
+
+             <!-- classifieds -->
+            <div class="downcontent mt-4">
+                <div class="classified bg-light mb-4">
+                    <h1 class="text-center mx-0 p-1">CLASSIFIEDS <i class="far fa-plus-square"></i></h1>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-4" style="height: 200px; ">
+                        <div class="h-100 d-flex  bg-secondary" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100"  alt="">
+                            <p class="u-para">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores, eaque et voluptas consequatur, id laudantium excepturi quam accusantium voluptatem temporibus, recusandae ipsum nam alias. Delectus fugit error in magnam debitis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque fugiat ad molestias ducimus modi voluptatum beatae ipsa soluta veniam corrupti dignissimos ex assumenda voluptatibus, quos magnam reiciendis nemo reprehenderit sapiente?</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" style="height: 200px;">
+                        <div class="h-100 d-flex " style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" style="height: 200px;">
+                        <div class="h-100 d-flex" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" style="height: 200px;">
+                        <div class="h-100 d-flex" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" style="height: 200px;">
+                        <div class="h-100 d-flex" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4" style="height: 200px;">
+                        <div class="h-100 d-flex" style="border: 1px solid #000;">
+                            <img src="./assets/IMG/tamara-malaniy-siBtoBwb9yc-unsplash.jpg" class="img-fluid w-100" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <!-- ad 3 -->
+            <div class="ad2 bg-dark my-3 w-100" id="advert3" style="height: 160px;border: 1px solid #000;">
+                <div class="h-100 d-flex">
+            		<img src="./assets/IMG/olu-famule-kYx_g4YBfLI-unsplash.jpg" class="img-fluid w-100">
+            	</div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script>
+        $('.classified').on('click',function(){
+            $('#exampleModalLong').modal();
+        });
+
+        $('.dollar').on('click',function(){
+            console.log("Clicked!!!");
+            $('#eModalLong').modal();
+        });
+
+        $('.igUpload').on('click',function(e){
+            e.preventDefault();
+            $('#imgUpload').click();
+        });
+
+        
+
+        $('select').on('click',function(e){
+            console.log(e);
+            var optval = e.target.value;
+            console.log(optval);
+            if(optval==1){
+                $('.text-opt').css('display','none');
+                $('.img-opt').css('display','block');
+            }
+            else if(optval==2){
+                $('.img-opt').css('display','none');
+                $('.text-opt').css('display','block');
+            }
+            else{
+                $('.img-opt').css('display','none');
+                $('.text-opt').css('display','none');
+            }
+        });
+
+
+        var w = document.getElementById('advert1').offsetWidth;
+        console.log(w);
+
+        var h = w / 4;
+        document.getElementById('advert1').style.height = h +'px';
+        console.log("< 768 h= " + h);
+
+    </script>
+</body>
+</html>
