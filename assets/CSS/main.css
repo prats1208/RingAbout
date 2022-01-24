@@ -98,14 +98,6 @@
     border: 1px solid #000;
 }
 
-.classified > h1{
-    color: #026852;
-    font-family: "Merriweather-BoldItalic";
-}
-.classified > h1:hover{
-    cursor: pointer;
-    color: #004532;
-}
 .upbtn{
     display: flex;
     flex-direction: column;
@@ -215,8 +207,15 @@
 
 
 /* challenge div */
+.r1{
+    margin-bottom: 2rem;
+}
 .challenge_div {
     border: 1px solid #000;
+    background-image: url(../IMG/dark-green-texture.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .challenge_div > div{
     position: relative;
@@ -296,10 +295,28 @@
     display: none;
 }
 
+/* classified */
+.downcontent{
+    background-image: url(../IMG/green-slate.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    padding: 0 15px 0 15px;
+}
 
 
 
-
-
+.classified > h1{
+    color: #026852;
+    color: #ffffff;
+    font-family: "Merriweather-BoldItalic";
+}
+.classified > h1:hover{
+    cursor: pointer;
+    color: #004532;
+    color: #000;
+}
 
 
