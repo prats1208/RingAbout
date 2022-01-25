@@ -72,7 +72,12 @@
     background-size: cover;
     background-repeat: no-repeat; */
 }
-
+.navbar-light .navbar-nav .nav-link{
+    color: #ffffff;
+}
+.active{
+    color: #000;
+}
 .navbar button[aria-expanded="false"] > .close{
     display:none;
 }

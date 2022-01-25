@@ -30,6 +30,13 @@ homelink.addEventListener("click",function(){
 });
 
 
+// Navbar
+$('a.nav-link').on('click', function(e) {
+    $(this).parent().addClass('active').siblings().removeClass('active');
+});
+
+
+
 // home
 var animatebox = document.getElementById('mwon');
 

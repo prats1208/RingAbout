@@ -62,17 +62,32 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
-
+.modal-header{
+    padding:0.5rem 1rem !important;
+}
+.close:focus{
+    outline: none;
+}
 .main-container{
     width: 100%;
-    height: auto;
-    overflow: hidden;
+    min-height: 100vh;
+    overflow-x: hidden;
     background-color: #f8fafb;
-    /* background-image: url(../IMG/green-slate.jpg);
+    background-image: url(../IMG/dark-green-texture.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-repeat: no-repeat; */
 }
-
+nav{
+    position: sticky;
+    top: 0;
+}
+.navbar-light .navbar-nav .nav-link{
+    color: #ffffff;
+}
+.active{
+    color: #000;
+}
 .navbar button[aria-expanded="false"] > .close{
     display:none;
 }
@@ -81,4 +96,56 @@
 }
 .nav-link,.dropdown-item,.navbar-brand{
     font-family: "Merriweather-Regular";
+}
+
+.a1{
+    width: 100%;
+    height: 100%;
+}
+
+#challenges,#leaderboards,#lottery{
+    display: none;
+}
+/* ,*/
+
+
+/* Leaderboard page */
+.pull-right a{
+    background-color: #026852;
+    color: #ffffff;
+}
+.pull-right a:hover{
+    color: #026852;
+    background-color: #ffffff;
+}
+
+#leaderboards th,#leaderboards td,#challenges th,#challenges td,#posts th,#posts td{
+    color: #ffffff;
+    text-align: center;
+}
+.tebtn,.backbtn{
+    background-color: #ffffff;
+    color: #026852;
+}
+.tebtn:hover,.backbtn:hover{
+    background-color: #026852;
+    color: #ffffff;
+}
+
+
+/* backbtn */
+.backbtn{
+    border: 2px solid #026852;
+}
+.subbtn,.lotbtn{
+    background-color: #026852;
+    color: #ffffff;
+}
+.subbtn:hover,.lotbtn:hover{
+    background-color: #ffffff;
+    color: #026852;
+}
+
+.adimg,.adtext,.adposts,.useposts{
+    display: none;
 }
