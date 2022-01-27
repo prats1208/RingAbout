@@ -65,3 +65,18 @@ th{
     font-size: 22px;
     font-family: "Montserrat-SemiBold";
 }
+
+.modal-header{
+    padding:0.5rem 1rem !important;
+}
+.modal-title{
+    font-family: "Montserrat-Bold";
+    color: #004532;
+}
+.modal-body h5{
+    font-family: "Montserrat-SemiBold";
+    font-size: 17px;
+}
+.modal-body button{
+    font-family: "Montserrat-Bold";
+}
