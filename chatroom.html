@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IHM-A</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="./assets/CSS/chatroom.css">
+<style type="text/css">
+    .blink {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #ba2028;
+    animation: blinker 1s infinite;
+    z-index: 1050;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.meta-info{
+   width: 100%;
+}
+
+.f-body {
+    width: 100%;
+}
+.circle{
+    text-align: end;
+}
+
+    .chat-box-inner {
+  
+    background-image: url("http://steponexp.net/images/chatroom_inactive.png");
+        background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+
+  .chat-box-footer{
+    display: none;
+  }
+
+  .backloader{
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    display: flex;
+    z-index: 3245678976676767;
+    width: 100%;
+    opacity: 60%;
+    height: 100%;
+    background-image: url(../img/photobooth.png);
+    position: fixed;
+    background-size: cover;
+}
+
+.m-msg pre {
+    color: #ffffff;
+}
+.message-content pre {
+    margin-bottom: 5px;
+    font-family: "Montserrat-Medium";
+    font-size: 13px;
+    line-height: 16px;
+}
+
+pre {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+</style>
+<style type="text/css">
+        .rotate {
+    display: none;
+}
+.fa-question-circle{
+    display: block;
+}
+
+
+
+
+.ml-auto, .mx-auto {
+    margin-left: auto!important;
+}
+.mr-auto, .mx-auto {
+    margin-right: auto!important;
+}
+.d-block {
+    display: block!important;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+.ie6, .ie7, .ie8, .ie9, img {
+    border: none;
+}
+
+        </style>
+</head>
+<body>
+
+    <div class="main-container" >
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #026852;">
+            <a class="navbar-brand ml-lg-2 text-white" href="main.html">Ringabout</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <!-- <span class="navbar-toggler-icon"></span> -->
+                <i class="fas fa-bars open text-white fw-bold"></i>
+                <i class="fas fa-times close text-white fw-bold"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end mr-4" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="main.html">Home</a>
+                </li>
+                <li class="nav-item ml-lg-3">
+                  <a class="nav-link " href="leaderboard.html">Leaderboard</a>
+                </li>
+                <li class="nav-item ml-lg-3 dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-expanded="false">
+                    Profile
+                  </a>
+                  <div class="dropdown-menu dropspace" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="profile.html">Profile</a>
+                    <a class="dropdown-item" href="#" id="logOut">Log Out</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+        </nav>
+        <div class="chatroom-screen w-100 ">
+            <div class="chat-container">
+				<div class="user-list">
+					<div class="people">
+						<div class="heading">
+							<h4>Currently Available</h4>
+						</div>
+                        <div class="search-bar">
+                            <input type="text" onkeyup="Searchtext()"  id="search" placeholder="Search Name/ Number"><i class="fas fa-search"></i>
+                        </div>
+                        <div class="active-users" id="joinwebcam" >
+						
+                        </div>
+					</div>
+				</div>
+				<div class="chat-box">
+					<!-- <div class="chat-not-selected">
+                        <p> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> Click User To Chat</p>
+                    </div> -->
+                    <div class="chat-box-inner">
+                        <div class="chat-meta-user">
+                            <div class="current-chat-user-name">
+                                <div class="user-initial">
+                                    <h2 class="Firstletter"></h2>
+                                </div>
+                                <span class="namevalues"></span>
+                            </div>
+                            <!-- <div class="video-call"><a href="network-video.html" target="blank"><i class="fas fa-video fa-lg"></i></a></div> -->
+                        </div>
+                        <div class="chat-box-content">
+                 <!-- <img src="http://steponexp.net/images/chatroom_inactive.png"> -->
+                                           
+                        	<div class="messages bubble-area">
+
+                        	</div>
+                    	</div>
+                        <div class="chat-box-footer">
+                        	<div class="chat-footer">
+                                <a href="#" class="cf-emoji" id="mytextareaa" ><img src="./assets/img/Happy.svg" alt=""></a>
+                       			<textarea type="text" rows="1"
+                                id="mytextarea" 
+                                 class="form-control chat_form chatbox chatboxnet " placeholder=" Write a message..."></textarea>
+                                <a href="#" onclick =" checkEnter(this, 13);"  class="cf-send"><img src="./assets/img/chat-send.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>        
+				</div>
+				
+			</div>
+        </div>
+<!-- <script type="text/javascript">
+    $('.chatboxnet').on('keydown', function(event) {
+    if (event.keyCode == 13){
+        var msg = $('.chatboxnet').val();
+            msg = msg.trim();
+            if(!msg)
+            {
+                $('.chat_form').val("");
+                debugger;
+                return false;
+            }
+        if (!event.shiftKey){
+            checkEnter(this, 13);
+            return false;
+        }
+
+    }
+});
+</script> -->
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>    	
+
+<!--         
+
+<script src="./assets/js/script.js"></script>
+        
+        <script src="./assets/js/fgEmojiPicker.js"></script>
+    <script  src="./assets/js/slambook.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/6.4.0/adapter.min.js" ></script>
+<script src="https://steponexp.net/IHMdata/public/js/message.js"></script>
+<script src="https://steponexp.net/IHMdata/public/js/coms.js"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+        callnetwork();
+    });
+         $(".loader").css("display","block");
+                $(".loader").css("z-index","1234567565665");
+                $(".backloader").css("display","block");
+    </script> -->
+</body>
+<!-- <link rel="stylesheet" href="assets/css/toastr.css" /> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+</html>
