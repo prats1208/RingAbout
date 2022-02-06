@@ -179,7 +179,10 @@
                                 <input type="url" class="inp mb-2" placeholder="social link 2">
                             </div>
                         </div>
-                        <button type="button" class="btn saveprof">Save</button>
+                        <div class="d-flex">
+                            <button type="button" class="btn saveprof">Save</button>
+                            <button type="button" class="btn cancelprof">Cancel</button>
+                        </div>
                     </div>
                 </form>
             </div> 
@@ -204,6 +207,12 @@
             e.preventDefault();
             $('.prof-cls').css('display','none');
             $('.inner-cls').css('display','block');
+        });
+
+        $('.cancelprof').on('click',function(e){
+            e.preventDefault();
+            $('.inner-cls').css('display','none');
+            $('.prof-cls').css('display','block');
         });
 
         $('.check').on('change',function(e){

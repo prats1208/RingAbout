@@ -35,7 +35,8 @@
     min-height: 100vh;
     /* overflow: hidden; */
     /* overflow-y: scroll; */
-    background-image: url(../IMG/green-slate.jpg);
+    /* background-image: url(../IMG/green-slate.jpg); */
+    background-image: url(../IMG/F004.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     position: relative;
@@ -226,7 +227,7 @@ form{
     margin-left: 1rem;
 }
 
-.saveprof{
+.saveprof,.cancelprof{
     background-color: #ffffff;
     color: #026852;
     margin-top: 0.7rem;

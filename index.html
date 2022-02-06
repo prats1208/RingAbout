@@ -20,6 +20,35 @@
     <link rel="stylesheet" href="./assets/CSS/style.css">
 </head>
 <body>
+
+    <!-- Forgot Password -->
+    <div class="modal fade" id="fModalLong" tabindex="-1" role="dialog" aria-labelledby="fModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="fModalLongTitle">Forgot Password?</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <form action="">
+                            <h5 class="mb-3">Please enter your registered email id to change the password</h5>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Enter your email">
+                            </div>
+                            <div class="form-group mt-4">
+                                <button class="btn btn-block pass_submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="main-container bg-light">
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -54,8 +83,15 @@
                         <li data-target="#carouselExampleSlidesOnly" data-slide-to="1"></li>
                       </ol>
                     <div class="carousel-inner h-100">
-                        <div class="carousel-item h-100 position-relative active">
-                            <img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="d-block w-100 position-absolute" alt="...">
+                        <div class="carousel-item h-100 position-relative active" id="ringabout">
+                            <div class="d-block w-100 h-100 position-absolute">
+                                <div class="d-flex justify-content-center align-items-center w-100 h-100">
+                                    <div class="container">
+                                        <h1>That we would like Ringabout to have a Motto<span> 'Dreams are like Streams ... they flow into Mighty Rivers'</span> with a suggestion that perhaps its placement could be under the Ringabout heading, spread across the entire page.</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <img src="./assets/IMG/fermin-rodriguez-penelas-b8kEUZqMNoQ-unsplash.jpg" class="d-block w-100 position-absolute" alt="..."> -->
                         </div>
                         <div class="carousel-item h-100 position-relative"  id="mwon">
                             <div class="d-block w-100 h-100 position-absolute">
@@ -147,23 +183,29 @@
                             <h2>Sign Up</h2>
                         </div>
                         <form action="#" method="post" id="regform">
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="name" placeholder="Name">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="For security purposes, your contact details will be used for OTP verification only."><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="user_name" placeholder="Username">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="For security purposes, your contact details will be used for OTP verification only."><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="email" class="form-control" id="email" placeholder="Email">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="For security purposes, your contact details will be used for OTP verification only."><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="text" class="form-control" id="zipcode" placeholder="ZipCode">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="For security purposes, your contact details will be used for OTP verification only."><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group d-flex">
                                 <input type="password" class="form-control" id="pass_word" placeholder="Password">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="For security purposes, your contact details will be used for OTP verification only."><i class="fas fa-info-circle"></i></button>
                             </div>
-                            <div class="form-group mb-4">
+                            <div class="form-group d-flex mb-4">
                                 <input type="password" class="form-control" id="confirm-pass" placeholder="Confirm Password">
+                                <button type="button" class="btn p-0" style="margin-left: -1rem; height: auto;" data-toggle="tooltip" data-placement="bottom" title="For security purposes, your contact details will be used for OTP verification only."><i class="fas fa-info-circle"></i></button>
                             </div>
                             <button type="submit" class="btn btn-block text-white" id="regbtn" style="background-color: #026852;">Sign In</button>
                         </form>
@@ -178,5 +220,11 @@
 
 
     <script src="./assets//JS/script.js"></script>
+
+    <script>
+        $('.forgot-pass').on('click',function(){
+            $('#fModalLong').modal();
+        });
+    </script>
 </body>
 </html>

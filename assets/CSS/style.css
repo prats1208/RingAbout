@@ -18,6 +18,10 @@ body {
   font-family: "Montserrat-SemiBold";
   src: url(../FONTS/Montserrat/Montserrat-SemiBold.ttf);
 }
+@font-face {
+  font-family: "PlayfairDisplay-Italic";
+  src: url(../FONTS/Playfair_Display/static/PlayfairDisplay-Italic.ttf);
+}
 
 .navbar-light .navbar-nav .nav-link{
   color: #ffffff;
@@ -159,6 +163,24 @@ a:hover {
   height: 100%;
   object-fit: cover;
 }
+#ringabout{
+  background-image: url(../IMG/bluebg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#ringabout h1{
+  /* font-size: 35px; */
+  font-family: "PlayfairDisplay-Italic";
+  font-family: "Montserrat-Bold";
+  text-align: center;
+  color: #dfdbdb;
+}
+#ringabout h1 span{
+  /* color:#000; */
+  color: #0e1f58;
+  color: #ffffff;
+}
 #mwon{
   background-image: url(../IMG/g-patternn.jpg);
   background-position: center;
@@ -200,8 +222,51 @@ a:hover {
 .about-para p{
   margin-bottom: 1.5rem;
 }
+
+.modal-title{
+  font-family: "Montserrat-Bold";
+  color: #004532;
+}
+.modal-body h5{
+  font-family: "Montserrat-SemiBold";
+  font-size: 17px;
+}
+.modal-body button{
+  font-family: "Montserrat-Bold";
+}
+#fModalLong label{
+  font-family: "Montserrat-Regular";
+  font-size: 16px;
+  margin-bottom: 0.3px !important;
+}
+#fModalLong .modal-title{
+  font-family: "Montserrat-Bold";
+}
+
+#fModalLong input{
+  font-family: "Montserrat-Light";
+  font-size: 14px;
+}
+
+.pass_submit{
+  padding: 7px 18px;
+  font-size: 16px;
+  color: #ffffff;
+  font-family: "Montserrat-Bold";
+  background-color: #026852;
+}
+
+.pass_submit:hover{
+  color: #ffffff;
+  background-color:#004532;
+}
+
+
 @media screen and (max-width:767px) {
   .logimg{
     margin-bottom: 2rem;
+  }
+  #ringabout h1{
+    font-size: 2rem;
   }
 }
