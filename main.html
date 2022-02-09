@@ -88,8 +88,8 @@
 
         <!-- Classifieds Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 650px;">
-                <div class="modal-content" style="height: 500px;">
+            <div class="modal-dialog modal-dialog-centered " role="document" style="max-width: 650px;">
+                <div class="modal-content" style="min-height: 500px;">
                     <div class="modal-header">
                     <h3 class="modal-title" id="exampleModalLongTitle">Create your Advertisement</h3>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -104,6 +104,7 @@
                                     <option selected>Select one from below</option>
                                     <option class="one opts" value="1">Image</option>
                                     <option class="two opts" value="2">Text</option>
+                                    <option class="three opts" value="3">Image/Text</option>
                                 </select>
                                 <div>
                                     <!-- image option -->
@@ -125,6 +126,49 @@
                                         <p class="mb-1 note"><strong>*** Maximum 120 letters</strong></p>
                                         <textarea placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
                                         <button class="btn txtsubmitbtn">Submit</button>
+                                    </div>
+                                    <!-- text over pattern option -->
+                                    <div class="patt-opt mt-5">
+                                        <div class="d-flex justify-content-center mb-4">
+                                            <div id="image" class="d-flex justify-content-center align-items-center text-center" style="width: 80%; height: 180px; border:1px solid #000;">
+                                                Click on an image below to display here.
+                                            </div>
+                                        </div>
+                                        <p class="mb-3 note"><strong>Choose the pattern for your advertisement's background</strong> </p>
+                                        <div class="patterns">
+                                            <div class="row">
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000; ">
+                                                        <img src="./assets/SVG/bubbles.svg" class="img-fluid w-100" style="object-fit: cover; background-color: #283b79;" onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000;">
+                                                        <img src="./assets/SVG/hideout.svg" class="img-fluid w-100" style="object-fit: cover;background-color: #283b79;"onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000;">    
+                                                        <img src="./assets/SVG/i-like-food.svg" class="img-fluid w-100" style="object-fit: cover;background-color: #283b79;"onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000; ">
+                                                        <img src="./assets/SVG/jigsaw.svg" class="img-fluid w-100" style="object-fit: cover;background-color: #283b79;"onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4" style="height: 100px;margin-bottom: 30px;">
+                                                    <div class="h-100 d-flex" style="border:1px solid #000;">
+                                                        <img src="./assets/SVG/temple.svg" class="img-fluid w-100" style="object-fit: cover;background-color: #283b79;"onclick="upDate(this)" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="mb-1 note"><strong>*** Maximum 120 letters</strong></p>
+                                                <textarea id="pattext" placeholder="Write your advertisement here..." style="resize: none; width: 100%; height: 150px;padding: 0.5rem 1rem;"></textarea>
+                                                <button class="btn pattsubmitbtn">Submit</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -401,6 +445,8 @@
 
 
 
+
+
     <script>
 
         // Navbar
@@ -432,16 +478,24 @@
             var optval = e.target.value;
             console.log(optval);
             if(optval==1){
+                $('.patt-opt').css('display','none');
                 $('.text-opt').css('display','none');
                 $('.img-opt').css('display','block');
             }
             else if(optval==2){
+                $('.patt-opt').css('display','none');
                 $('.img-opt').css('display','none');
                 $('.text-opt').css('display','block');
+            } 
+            else if(optval==3){
+                $('.text-opt').css('display','none');
+                $('.img-opt').css('display','none');
+                $('.patt-opt').css('display','block');
             }
             else{
                 $('.img-opt').css('display','none');
                 $('.text-opt').css('display','none');
+                $('.patt-opt').css('display','none');
             }
         });
 
@@ -464,6 +518,19 @@
         var uh = uw / 2;
         var uhh = uh + 'px';
         $('.clsf').css('height', uhh);
+
+
+       
+
+        function upDate(x){
+            document.getElementById('image').style.backgroundImage="url("+ x.src +")";
+            document.getElementById('image').innerHTML="Your Advertisement's text will be here...";
+        }
+
+        function unDo(){
+            document.getElementById('image').style.backgroundImage= "url("+ '' +")";
+            document.getElementById('image').innerHTML="Click on an image below to display here";	
+        }
 
     </script>
 </body>

@@ -58,6 +58,24 @@ $(document).on('scroll',function(){
 });
     
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Registration
 
 // function sendData(data){

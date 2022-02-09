@@ -123,8 +123,19 @@
     object-fit: contain;
 }
 
-.img-opt,.text-opt{
+.img-opt,.text-opt,.patt-opt{
     display: none;
+}
+#image{
+    background-position: center;
+    background-repeat: repeat;
+    background-color: #283b79;
+    color: #ffffff;
+    font-family: "Montserrat-Bold";
+    font-size: 1.5rem;
+}
+.patterns img:hover{
+    cursor: pointer;
 }
 .text-opt textarea,.text-opt textarea::placeholder{
     font-family: "PlayfairDisplay-Italic";
